@@ -7,7 +7,7 @@ module.exports = {
     const user = entry.executor.username;
     const discriminator = entry.executor.discriminator;
 
-    logs.send(`${user}#${discriminator} deleted channel: #"${channel.name}"`);
+    logs.send(`${user}#${discriminator} deleted channel: #${channel.name}`);
 
   },
 };
