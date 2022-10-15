@@ -5,7 +5,7 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
 
 client.commands = new Collection();
 
@@ -35,6 +35,7 @@ for (const file of eventFiles) {
     // When the client is ready, run this code (only once)
     client.once(event.name, (...args) => event.execute(...args));
   } else {
+    // console.log(event.name, (...args) => event.execute(...args));
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
