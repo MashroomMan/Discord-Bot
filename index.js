@@ -35,7 +35,6 @@ for (const file of eventFiles) {
     // When the client is ready, run this code (only once)
     client.once(event.name, (...args) => event.execute(...args));
   } else {
-    // console.log(event.name, (...args) => event.execute(...args));
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
