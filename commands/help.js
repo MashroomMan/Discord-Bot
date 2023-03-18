@@ -5,7 +5,7 @@ module.exports = {
         .setName('help')
         .setDescription('Get a list of bot commands'),
   async execute(interaction) {
-    console.log(interaction);
+    // console.log(interaction);
     const user = interaction.user;
 
     user.send('Hi');
