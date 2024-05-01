@@ -1,6 +1,7 @@
 module.exports = {
   name: 'interactionCreate',
   execute(interaction) {
+    console.log(interaction);
     console.log(`${interaction.user.tag} did ${interaction} in #${interaction.channel.name} triggered an interaction`);
     if (!interaction.isChatInputCommand()) return;
 
