@@ -3,11 +3,17 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
+const db = require('./database');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] });
 
 client.commands = new Collection();
+
+db.connect(err => {
+  if (err) { console.error('Connection Error', err.stack); }
+  else { console.log('Connected to database!'); }
+});
 
 // Constructs a path to the commands directory and stores it in a constant to reference it later
 const commandsPath = path.join(__dirname, 'commands');
